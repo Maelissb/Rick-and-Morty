@@ -1,12 +1,11 @@
 services:
   frontend:
-    container_name: brandify-frontend
+    container_name: brandify-frontend # Nom du conteneur Docker.
     build: 
-      context: ./Brandify-project
-      dockerfile: Dockerfile
+      context: ./Brandify-project # Chemin vers le répertoire contenant le Dockerfile.
+      dockerfile: Dockerfile # Nom du fichier Dockerfile à utiliser pour la construction.
     ports:
-      - "5173:5173"
+      - "5173:5173" # Mappe le port 5173 du conteneur au port 5173 de l'hôte.
     volumes:
-      - ./Brandify-project:/app
-    environment:
-      - NODE_ENV=production
+      - ./Brandify-project:/app # Monte le répertoire local dans le conteneur pour le développement en direct.
+      - /app/node_modules
